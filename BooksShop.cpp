@@ -160,7 +160,7 @@ void deleteBook(vector<Book> &customerCart,vector<Book> &shopBook){
 			if book present in cart it will use erase function of vector
 			and delete that element from the vector and update stock variable 
 			and after that our function itrate over shoopBook vector and add
-			deleted book stock to shopBook stock
+			deleted book stock to shopBook stock array
 	*/
 	if(customerCart.size()==0){
 		cout << "Please Add Some Books in Cart!"<<endl;

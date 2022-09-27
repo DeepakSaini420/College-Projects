@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="checkout.css">
+    </head>
+    <body>
+        <div class="back" id="back">
+
+        </div>
+        <div class="conformation" id="confirm">
+            <div>
+                <strong>Your Order has been Confirmed</strong>
+            </div>
+            <div class="check">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Eo_circle_green_checkmark.svg/64px-Eo_circle_green_checkmark.svg.png" alt="greencheck.png">
+            </div>
+            <div>
+                <p>Thank You For Purchase!</p>
+            </div>
+            <div class="details">
+                <p>Your Order Will be delevired on </p>
+            </div>
+            <button class="cp" id="cp">CONTINUE YOUR SHOPPING</button>
+        </div>
+        <form>
+            <div class="container">
+                <h1>Checkout</h1>
+                <p>Please fill in this form to place your order.</p>
+                <hr>
+
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+                <label for="name"><b>Full Name</b></label>
+                <input type="text" placeholder="Enter your Name" name="email" id="email" required>
+
+                <label for="psw"><b>Country</b></label>
+                <input type="text" placeholder="Enter Your Country" name="psw" id="psw" required>
+
+                <label for="psw"><b>State</b></label>
+                <input type="text" placeholder="Enter Your State" name="psw" id="psw" required>
+
+                <label for="psw"><b>City</b></label>
+                <input type="text" placeholder="Enter Your City" name="psw" id="psw" required>
+
+                <label for="psw-repeat"><b>Address</b></label>
+                <input type="text" placeholder="Enter Your Address" name="psw-repeat" id="psw-repeat" required>
+
+                <label for="psw-repeat"><b>Phone Number</b></label>
+                <input type="text" placeholder="Enter Your Phone No" name="psw-repeat" id="psw-repeat" required>
+
+                <label for="psw-repeat"><b>Pin Code</b></label>
+                <input type="text" placeholder="Enter Your Pin Code" name="psw-repeat" id="psw-repeat" required>
+                <hr>
+                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+                <button type="submit" id="sub" class="registerbtn">Register</button>
+            </div>
+        </form>
+
+        <script>
+            const submit = document.getElementById('sub');
+            const back = document.getElementById('back');
+            const confirm = document.getElementById('confirm');
+            const cp = document.getElementById('cp');
+            let cartItems = JSON.parse(localStorage.getItem('cart'))
+            submit.addEventListener('click',(e)=>{
+                e.preventDefault();
+                if(cartItems.length===0){
+                    alert('Please Add Some Items In Cart!');
+                }else{
+                    back.style.zIndex = 2;
+                    confirm.style.zIndex = 3;
+                }
+            })
+            back.addEventListener('click',()=>{
+                back.style.zIndex = -1;
+                confirm.style.zIndex = -1;
+            })
+            cp.addEventListener('click',()=>{
+                document.location.href="/index.html";
+            })
+        </script>
+    </body>
+</html>
